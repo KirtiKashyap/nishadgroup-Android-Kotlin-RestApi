@@ -12,8 +12,10 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface MyApi {
-
-    //.baseUrl("http://92.168.0.31:8080/api/")
+    // http://192.168.0.31:8080"
+    // this is my local machine address because my api is not deploy yet. If want my api code please go to github repository.
+    // https://github.com/KirtiKashyap/nishad-group
+    // quotes api is not implement at backend so when it will create I will update it soon.
     @GET("quotes")
     suspend fun getQuotes():Response<QuotesResponse>
 
@@ -45,7 +47,6 @@ interface MyApi {
             return Retrofit.Builder()
                 .client(okHttpClient)
                 .baseUrl("http://192.168.0.31:8080")
-                //.baseUrl("https://api.simplifiedcoding.in/course-apis/mvvm/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(MyApi::class.java)
